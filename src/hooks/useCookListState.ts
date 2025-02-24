@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { recipes } from "../data/recipes";
-import { Recipe, ShoppingListItem } from "../types";
+import { ShoppingListItem } from "../types";
 
 export const useCookListState = () => {
   // Gestion de la liste de courses

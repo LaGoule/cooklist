@@ -26,8 +26,10 @@ const App: React.FC = () => {
     filteredRecipes,
   } = useCookListState();
 
+  const AppComponent = IonApp as any;
+
   return (
-    <IonApp>
+    <AppComponent>
       <IonSplitPane contentId="main-content">
         <ShoppingList shoppingList={shoppingList} clearList={() => setShoppingList([])} />
 
@@ -62,7 +64,7 @@ const App: React.FC = () => {
           </IonContent>
         </IonPage>
       </IonSplitPane>
-    </IonApp>
+    </AppComponent>
   );
 };
 
