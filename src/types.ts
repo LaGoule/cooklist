@@ -18,6 +18,14 @@ export interface Recipe {
   ingredients: Ingredient[];
 }
 
+export interface Category {
+  name: string;
+}
+
+export interface Tag {
+  name: string;
+}
+
 export interface ShoppingListItem {
   recipeId: number;
   recipeName: string;

@@ -5,7 +5,7 @@ import { Recipe, Category, Tag } from "../types";
 
 interface RecipesListProps {
   shoppingList: any[];
-  favorites?: string[]; // Ajout du `?` et d'une valeur par défaut
+  favorites?: string[]; 
   toggleFavorite: (recipeId: string) => void;
   addToShoppingList: (recipe: Recipe) => void;
   removeRecipeFromList: (recipeId: string) => void;
@@ -18,12 +18,12 @@ interface RecipesListProps {
   resetFilters: () => void;
   availableCategories: Category[];
   availableTags: Tag[];
-  filteredRecipes?: Recipe[]; // Ajout du `?` pour éviter les erreurs
+  filteredRecipes?: Recipe[]; 
 }
 
 const RecipesList: React.FC<RecipesListProps> = ({
   shoppingList,
-  favorites = [], // Valeur par défaut pour éviter undefined
+  favorites = [] as string[], 
   toggleFavorite,
   addToShoppingList,
   removeRecipeFromList,
@@ -36,7 +36,7 @@ const RecipesList: React.FC<RecipesListProps> = ({
   resetFilters,
   availableCategories,
   availableTags,
-  filteredRecipes = [], // Valeur par défaut pour éviter undefined
+  filteredRecipes = [],
 }) => {
   return (
     <IonGrid>
@@ -44,13 +44,13 @@ const RecipesList: React.FC<RecipesListProps> = ({
       <RecipesFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        selectedTags={selectedTags}
-        setSelectedTags={setSelectedTags}
-        selectedCategories={selectedCategories}
-        setSelectedCategories={setSelectedCategories}
+        selectedTags={selectedTags as any}
+        setSelectedTags={setSelectedTags as any}
+        selectedCategories={selectedCategories as any}
+        setSelectedCategories={setSelectedCategories as any}
         resetFilters={resetFilters}
-        availableCategories={availableCategories}
-        availableTags={availableTags}
+        availableCategories={availableCategories as any}
+        availableTags={availableTags as any}
       />
 
       {/* Liste des recettes */}
@@ -61,10 +61,10 @@ const RecipesList: React.FC<RecipesListProps> = ({
               <RecipeCard
                 recipe={recipe}
                 isSelected={shoppingList.some((item) => item.recipeId === recipe.id)}
-                addToShoppingList={addToShoppingList}
-                removeRecipeFromList={removeRecipeFromList}
-                isFavorite={favorites.includes(recipe.id)}
-                toggleFavorite={toggleFavorite}
+                addToShoppingList={addToShoppingList as any}
+                removeRecipeFromList={removeRecipeFromList as any}
+                isFavorite={favorites.includes(recipe.id as any)}
+                toggleFavorite={toggleFavorite as any}  
               />
             </IonCol>
           ))

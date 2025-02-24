@@ -1,7 +1,7 @@
 import { setupIonicReact } from "@ionic/react";
 setupIonicReact();
 
-import { IonApp, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonButtons, IonSplitPane, IonPage, IonGrid, IonRow, IonCol } from "@ionic/react";
+import { IonApp, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonButtons, IonSplitPane, IonPage } from "@ionic/react";
 import { useCookListState } from "./hooks/useCookListState";
 import RecipesList from "./components/RecipesList";
 import ShoppingList from "./components/ShoppingList";
@@ -42,25 +42,23 @@ const App: React.FC = () => {
           </IonHeader>
 
           <IonContent className="ion-padding">
-          <IonContent className="ion-padding">
             <RecipesList
               shoppingList={shoppingList}
-              favorites={favorites}
-              toggleFavorite={toggleFavorite}
-              addToShoppingList={addToShoppingList}
-              removeRecipeFromList={removeRecipeFromList}
+              favorites={favorites as any}
+              toggleFavorite={toggleFavorite as any}
+              addToShoppingList={addToShoppingList as any}
+              removeRecipeFromList={removeRecipeFromList as any}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
-              selectedTags={selectedTags}
-              setSelectedTags={setSelectedTags}
-              selectedCategories={selectedCategories}
-              setSelectedCategories={setSelectedCategories}
+              selectedTags={selectedTags as any}
+              setSelectedTags={setSelectedTags as any}
+              selectedCategories={selectedCategories as any}
+              setSelectedCategories={setSelectedCategories as any}
               resetFilters={resetFilters}
-              availableCategories={availableCategories}
-              availableTags={availableTags}
+              availableCategories={availableCategories as any}
+              availableTags={availableTags as any}
               filteredRecipes={filteredRecipes}
             />
-          </IonContent>
           </IonContent>
         </IonPage>
       </IonSplitPane>
