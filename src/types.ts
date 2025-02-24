@@ -2,12 +2,19 @@ export interface Ingredient {
   name: string;
   quantity: number;
   unit: string;
+  category?: string;
+  reference?: {
+    quantity: number;
+    unit: string;
+  };
 }
 
 export interface Recipe {
   id: number;
   name: string;
-  defaultPortions: number;
+  category: string;
+  tags: string[];
+  fixedPortions?: number;
   ingredients: Ingredient[];
 }
 

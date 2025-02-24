@@ -28,7 +28,12 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, isSelected, addToShoppi
     <IonCard 
       onClick={() => isSelected ? removeRecipeFromList(recipe.id) : addToShoppingList(recipe.id, portions)}
       className={isSelected ? "selected-recipe" : ""}
-      style={{ border: isSelected ? "4px solid var(--ion-color-primary)" : "4px solid transparent" }}
+      style={{ 
+        border: isSelected ? "4px solid var(--ion-color-primary)" : "4px solid transparent" ,
+        background : isSelected ? "var(--ion-color-light)" : "white",
+        borderRadius: "10px",
+        cursor: "pointer"
+      }}
     >
       <IonCardHeader style={{ 
         display: "flex", 
@@ -50,7 +55,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, isSelected, addToShoppi
         </IonCardTitle>
         <IonIcon 
           icon={isFavorite ? heart : heartOutline} 
-          color="primary"
+          color="danger"
           style={{ 
             fontSize: "24px", 
             cursor: "pointer", 
