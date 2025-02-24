@@ -3,8 +3,7 @@ setupIonicReact();
 
 import { IonApp, IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonButtons, IonSplitPane, IonPage, IonGrid, IonRow, IonCol } from "@ionic/react";
 import { useCookListState } from "./hooks/useCookListState";
-import RecipeCard from "./components/RecipeCard";
-import RecipesFilter from "./components/RecipesFilter";
+import RecipesList from "./components/RecipesList";
 import ShoppingList from "./components/ShoppingList";
 
 const App: React.FC = () => {
@@ -43,34 +42,25 @@ const App: React.FC = () => {
           </IonHeader>
 
           <IonContent className="ion-padding">
-            <IonGrid>
-              <RecipesFilter
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                selectedTags={selectedTags}
-                setSelectedTags={setSelectedTags}
-                selectedCategories={selectedCategories}
-                setSelectedCategories={setSelectedCategories}
-                resetFilters={resetFilters}
-                availableCategories={availableCategories}
-                availableTags={availableTags}
-              />
-
-              <IonRow>
-                {filteredRecipes.map(recipe => (
-                  <IonCol key={recipe.id} size="12" size-md="4">
-                    <RecipeCard
-                      recipe={recipe}
-                      isSelected={shoppingList.some(item => item.recipeId === recipe.id)}
-                      addToShoppingList={addToShoppingList}
-                      removeRecipeFromList={removeRecipeFromList}
-                      isFavorite={favorites.includes(recipe.id)}
-                      toggleFavorite={toggleFavorite}
-                    />
-                  </IonCol>
-                ))}
-              </IonRow>
-            </IonGrid>
+          <IonContent className="ion-padding">
+            <RecipesList
+              shoppingList={shoppingList}
+              favorites={favorites}
+              toggleFavorite={toggleFavorite}
+              addToShoppingList={addToShoppingList}
+              removeRecipeFromList={removeRecipeFromList}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              selectedTags={selectedTags}
+              setSelectedTags={setSelectedTags}
+              selectedCategories={selectedCategories}
+              setSelectedCategories={setSelectedCategories}
+              resetFilters={resetFilters}
+              availableCategories={availableCategories}
+              availableTags={availableTags}
+              filteredRecipes={filteredRecipes}
+            />
+          </IonContent>
           </IonContent>
         </IonPage>
       </IonSplitPane>

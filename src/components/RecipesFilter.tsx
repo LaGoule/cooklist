@@ -57,7 +57,7 @@ const RecipesFilter: React.FC<RecipesFilterProps> = ({
 
       {/* Filtres par Catégories */}
       <IonItem>
-        <IonLabel>Catégories :</IonLabel>
+        <IonLabel>Catégories:</IonLabel>
         { (availableCategories ?? []).map((category) => (
           <IonChip 
             key={category} 
@@ -71,7 +71,7 @@ const RecipesFilter: React.FC<RecipesFilterProps> = ({
 
       {/* Filtres par Tags */}
       <IonItem>
-        <IonLabel>Tags :</IonLabel>
+        <IonLabel>Tags:</IonLabel>
         { (availableTags ?? []).map((tag) => (
           <IonChip 
             key={tag} 
